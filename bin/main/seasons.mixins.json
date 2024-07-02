@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.lucaargolo.seasons.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AbstractBlockMixin",
+    "AnimalEntityMixin",
+    "BiomeMixin",
+    "FreezeTopLayerFeatureMixin",
+    "IceBlockMixin",
+    "LakeFeatureMixin",
+    "ServerWorldMixin",
+    "SnowBlockMixin",
+    "VanillaFertilizablesMixin",
+    "WorldViewMixin"
+  ],
+  "client": [
+    "BiomeColorsMixin",
+    "BlockColorsMixin",
+    "BlockModelsMixin",
+    "ItemMixin",
+    "ItemModelsMixin",
+    "JsonUnbakedModelMixin",
+    "ModelLoaderMixin",
+    "MultipartBakedModelBuilderMixin",
+    "WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

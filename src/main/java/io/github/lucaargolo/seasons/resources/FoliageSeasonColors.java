@@ -33,7 +33,7 @@ public class FoliageSeasonColors implements SimpleSynchronousResourceReloadListe
     private static int[] winterColorMap = new int[65536];
 
     private static SeasonColor minecraftDefaultFoliage = new SeasonColor(0x48B518, 0x4CE00B, 0xD2CF1E, 0xC6DFB6);
-    private static SeasonColor minecraftSpruceFoliage = new SeasonColor(0x619961, 0x619961, 0x619961, 0x619961);
+    private static SeasonColor minecraftSpruceFoliage = new SeasonColor(0x80A755, 0x81B844, 0xD66800, 0x665026);
     private static SeasonColor minecraftBirchFoliage = new SeasonColor(0x80A755, 0x81B844, 0xD66800, 0x665026);
 
     private static final HashMap<Identifier, SeasonColor> foliageColorMap = new HashMap<>();
@@ -62,7 +62,7 @@ public class FoliageSeasonColors implements SimpleSynchronousResourceReloadListe
 
 
     public static int getSpruceColor(Season season) {
-        return minecraftSpruceFoliage.getColor(season);
+        return minecraftDefaultFoliage.getColor(season);
     }
 
     public static int getBirchColor(Season season) {

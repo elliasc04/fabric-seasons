@@ -379,7 +379,7 @@ public class FabricSeasons implements ModInitializer {
             switch (season) {
                 case SUMMER -> {
                     if (CONFIG.shouldSnowyBiomesMeltInSummer())
-                        return new Pair<>(hasPrecipitation, temp + 0.3f);
+                        return new Pair<>(hasPrecipitation, temp + 0.7f);
                     else return new Pair<>(hasPrecipitation, temp);
                 }
                 case WINTER -> {
@@ -393,7 +393,7 @@ public class FabricSeasons implements ModInitializer {
             //Cold Biomes
             switch (season) {
                 case SUMMER -> {
-                    return new Pair<>(hasPrecipitation, temp + 0.2f);
+                    return new Pair<>(hasPrecipitation, temp + 0.7f);
                 }
                 case WINTER -> {
                     return new Pair<>(hasPrecipitation, temp - 0.2f);

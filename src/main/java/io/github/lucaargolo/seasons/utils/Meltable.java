@@ -28,11 +28,11 @@ public interface Meltable {
 
     static void replaceBlockOnSnow(ServerWorld world, BlockPos blockPos, Biome biome) {
         BlockState plantState = world.getBlockState(blockPos);
-        if(plantState.isIn(REPLACEABLE_BY_SNOW)) {
+        if (plantState.isIn(REPLACEABLE_BY_SNOW)) {
             if (!biome.doesNotSnow(blockPos) && blockPos.getY() >= world.getBottomY() && blockPos.getY() < world.getTopY() && world.getLightLevel(LightType.BLOCK, blockPos) < 10) {
                 BlockState upperState = world.getBlockState(blockPos.up());
-                if(plantState.getProperties().contains(TallPlantBlock.HALF) && upperState.getProperties().contains(TallPlantBlock.HALF)) {
-                    if(upperState.get(TallPlantBlock.HALF) == DoubleBlockHalf.UPPER) {
+                if (plantState.getProperties().contains(TallPlantBlock.HALF) && upperState.getProperties().contains(TallPlantBlock.HALF)) {
+                    if (upperState.get(TallPlantBlock.HALF) == DoubleBlockHalf.UPPER) {
                         FabricSeasons.setMeltable(blockPos);
                         FabricSeasons.getReplacedMeltablesState(world).setReplaced(blockPos, plantState);
                         world.setBlockState(blockPos, Blocks.SNOW.getDefaultState(), Block.FORCE_STATE);
@@ -40,7 +40,7 @@ public interface Meltable {
                         Blocks.SNOW.getDefaultState().updateNeighbors(world, blockPos, Block.NOTIFY_ALL);
                         world.updateListeners(blockPos, plantState, Blocks.SNOW.getDefaultState(), Block.NOTIFY_ALL);
                     }
-                }else if(upperState.isAir()) {
+                } else if (upperState.isAir()) {
                     FabricSeasons.setMeltable(blockPos);
                     FabricSeasons.getReplacedMeltablesState(world).setReplaced(blockPos, plantState);
                     world.setBlockState(blockPos, Blocks.SNOW.getDefaultState());
@@ -48,5 +48,4 @@ public interface Meltable {
             }
         }
     }
-
 }
