@@ -28,7 +28,7 @@ public interface Meltable {
 
     static void replaceBlockOnSnow(ServerWorld world, BlockPos blockPos, Biome biome) {
         BlockState plantState = world.getBlockState(blockPos);
-        if (plantState.isIn(REPLACEABLE_BY_SNOW)) {
+        if (plantState.isIn(REPLACEABLE_BY_SNOW) || plantState.isOf(Blocks.SNOW_BLOCK)) { // Check for replaceable by snow or ice block
             if (!biome.doesNotSnow(blockPos) && blockPos.getY() >= world.getBottomY() && blockPos.getY() < world.getTopY() && world.getLightLevel(LightType.BLOCK, blockPos) < 10) {
                 BlockState upperState = world.getBlockState(blockPos.up());
                 if (plantState.getProperties().contains(TallPlantBlock.HALF) && upperState.getProperties().contains(TallPlantBlock.HALF)) {
@@ -44,6 +44,8 @@ public interface Meltable {
                     FabricSeasons.setMeltable(blockPos);
                     FabricSeasons.getReplacedMeltablesState(world).setReplaced(blockPos, plantState);
                     world.setBlockState(blockPos, Blocks.SNOW.getDefaultState());
+                } else if (plantState.isOf(Blocks.SNOW_BLOCK)) { // Handle melting of ice block
+                    world.setBlockState(blockPos, Blocks.AIR.getDefaultState());
                 }
             }
         }

@@ -385,6 +385,9 @@ public class FabricSeasons implements ModInitializer {
                 case WINTER -> {
                     return new Pair<>(hasPrecipitation, temp - 0.2f);
                 }
+                case FALL -> {
+                    return new Pair<>(hasPrecipitation, temp + 0.7f);
+                }
                 default -> {
                     return new Pair<>(hasPrecipitation, temp);
                 }
